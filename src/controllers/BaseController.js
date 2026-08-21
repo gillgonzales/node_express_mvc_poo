@@ -1,4 +1,3 @@
-export class BaseController {
-  render(res, view, data = {}) { return res.render(view, data); }
+export class BaseController { 
   json(res, data, status = 200) { return res.status(status).json(data); }
 }

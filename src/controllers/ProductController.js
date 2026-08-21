@@ -1,12 +1,13 @@
 import { BaseController } from './BaseController.js';
 import { ProductModel } from '../models/ProductModel.js';
+import { View } from '../views/View.js';
 
 export class ProductController extends BaseController {
   constructor() { super(); this.productModel = new ProductModel(); }
 
   requireAuth(req, res) {
     if (!req.session.user) {
-      this.render(res, 'login', { title: 'Entrar | Projeto MVC', error: 'Entre para gerenciar os produtos.' });
+      View.render(res, 'login', { title: 'Entrar | Projeto MVC', error: 'Entre para gerenciar os produtos.' });
       return false;
     }
     return true;
@@ -16,7 +17,7 @@ export class ProductController extends BaseController {
     if (!this.requireAuth(req, res)) return;
     try {
       const products = await this.productModel.findAll();
-      return this.render(res, 'products', { title: 'Produtos | Projeto MVC', products, user: req.session.user, queryError: req.query.error });
+      return View.render(res, 'products', { title: 'Produtos | Projeto MVC', products, user: req.session.user, queryError: req.query.error });
     } catch (error) { return next(error); }
   };
 
