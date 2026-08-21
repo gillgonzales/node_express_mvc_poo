@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><%- include('../partials/head', { title }) %></head>
+<body>
+  <%- include('../partials/nav') %>
+  <main class="container">
+    <h1>Produtos</h1>
+    <p><a href="/produtos/novo">Novo produto</a></p>
+    <% if (queryError) { %><p class="error"><%= queryError %></p><% } %>
+    <% if (!products.length) { %><p>Nenhum produto cadastrado.</p><% } %>
+    <table>
+      <thead><tr><th>ID</th><th>Nome</th><th>Preço</th><th>Ações</th></tr></thead>
+      <tbody>
+        <% products.forEach((product) => { %>
+          <tr><td><%= product.id %></td><td><a href="/produtos/<%= product.id %>"><%= product.name %></a></td><td>R$ <%= Number(product.price).toFixed(2).replace('.', ',') %></td><td><a href="/produtos/<%= product.id %>/editar">Editar</a> <form class="inline" action="/produtos/<%= product.id %>/delete" method="post"><button type="submit">Excluir</button></form></td></tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

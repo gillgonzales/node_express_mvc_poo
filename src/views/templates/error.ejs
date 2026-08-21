@@ -1,5 +1,5 @@
 <!doctype html>
 <html lang="pt-BR">
 <head><%- include('partials/head', { title }) %></head>
-<body><%- include('partials/nav', { user: null }) %><main class="container"><h1>Erro interno</h1><p>Não foi possível concluir a operação.</p><a href="/">Voltar</a></main></body>
+<body><%- include('partials/nav') %><main class="container"><h1>Erro</h1><p><%= message || 'Não foi possível concluir a operação.' %></p><a href="/">Voltar</a></main></body>
 </html>

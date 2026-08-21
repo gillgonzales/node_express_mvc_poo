@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><%- include('../partials/head', { title }) %></head>
+<body>
+  <%- include('../partials/nav') %>
+  <main class="container">
+    <p><a href="/produtos">&larr; Todos os produtos</a></p>
+    <h1><%= product.name %></h1>
+    <dl><dt>ID</dt><dd><%= product.id %></dd><dt>Descrição</dt><dd><%= product.description || 'Sem descrição.' %></dd><dt>Preço</dt><dd>R$ <%= Number(product.price).toFixed(2).replace('.', ',') %></dd><dt>Criado em</dt><dd><%= new Date(product.created_at).toLocaleString('pt-BR') %></dd></dl>
+    <a href="/produtos/<%= product.id %>/editar">Editar produto</a>
+  </main>
+</body>
+</html>
