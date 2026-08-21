@@ -1,5 +1,4 @@
 import express from 'express';
-import session from 'express-session';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { View } from './views/View.js';
@@ -11,7 +10,6 @@ export class App {
   setupMiddlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
-    this.app.use(session({ secret: process.env.SESSION_SECRET || 'development-secret', resave: false, saveUninitialized: false, cookie: { httpOnly: true, sameSite: 'lax', maxAge: 86400000 } }));
     this.app.use(express.static(path.join(dirname, '../public')));
   }
   setupViews() { View.setUp(this.app,dirname) }
