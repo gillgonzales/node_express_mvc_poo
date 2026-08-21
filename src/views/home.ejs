@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><%- include('partials/head', { title }) %></head>
+<body>
+  <%- include('partials/nav', { user }) %>
+  <main class="container">
+    <h1>Projeto MVC</h1>
+    <p>Exemplo de aplicação Node.js com Express, POO e acesso SQL sem ORM.</p>
+    <h2>Produtos</h2>
+    <% if (!products.length) { %><p>Nenhum produto cadastrado.</p><% } %>
+    <ul class="list">
+      <% products.forEach((product) => { %>
+        <li><strong><%= product.name %></strong> - R$ <%= Number(product.price).toFixed(2).replace('.', ',') %><br><small><%= product.description %></small></li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+</html>
