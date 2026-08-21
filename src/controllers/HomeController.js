@@ -8,7 +8,7 @@ export class HomeController extends BaseController {
   index = async (req, res, next) => {
     try {
       const products = await this.productModel.findAll();
-      return View.render(res, 'home', { title: 'Projeto MVC', products, user: req.session.user });
+      return View.render(res, 'home', { title: 'Projeto MVC', products });
     } catch (error) { return next(error); }
   };
 }
