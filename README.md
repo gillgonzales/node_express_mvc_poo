@@ -1,4 +1,4 @@
-# Ateliê MVC em Node.js
+# Projeto MVC em Node.js
 
 Protótipo educacional inspirado no projeto PHP Composer POO MVC. A aplicação mantém MVC, orientação a objetos em JavaScript ES6, Express para HTTP, EJS para views e PostgreSQL com SQL puro parametrizado. Não utiliza ORM.
 
